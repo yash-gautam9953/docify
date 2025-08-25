@@ -64,3 +64,6 @@ Inside your Node.js project, always connect like this:
 
 Docify will inject the correct MONGO_URL into your container automatically.
 
+## 👨‍💻 Author
+
+### Built with ❤️ & 🐳 by Yash Gautam
