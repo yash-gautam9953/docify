@@ -27,8 +27,7 @@ It detects ports, databases, generates a Dockerfile, builds an image, and runs y
 
 ## 📥 Download
 
-  You don’t need to clone the repo just for the .exe. Directly download it using PowerShell:
-  Inside your project folder and run it.
+ You don’t need to clone the repo just for the .exe. Simply download it using PowerShell inside your project folder and run it.
 
     Invoke-WebRequest -Uri "https://github.com/yash-gautam9953/docify/raw/main/docify.exe" -OutFile "docify.exe"
 
@@ -48,12 +47,16 @@ Keep your project like this for smooth usage:
 
 Now just open a terminal in `myapp/` and run:
 
-    ./docify.exe
-
 
 ## 🚀 Usage
 
-    ./docify
+    ./docify.exe
+
+  OR
+
+      ./docify
+
+
 
 ## 🗄 MongoDB Setup
 
