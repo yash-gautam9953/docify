@@ -1,32 +1,42 @@
 # 🐳 Docify
 
-Docify is a lightweight **Go-based CLI tool** that automatically Dockerizes your **Node.js** or **Python** projects. It detects ports, databases, generates a Dockerfile, builds an image, and runs your app in a container — with almost zero setup.
+**Docify** is a lightweight **Go-based CLI tool** that automatically Dockerizes your **Node.js** or **Python** projects.  
+It detects ports, databases, generates a Dockerfile, builds an image, and runs your app in a container — with almost **zero setup**. 🚀  
 
 ---
 
 ## ✨ Features
-- 🔍 Auto-detects backend port (from `.env` or `.js` files)  
-- 🐳 Generates a Dockerfile automatically (Node.js / Python)  
-- 📦 Builds & runs Docker containers with a single command  
-- 🛑 Stops and removes conflicting containers (same port or name)  
-- 🗑 Cleans up containers gracefully on `Ctrl + C`  
-- 🗃 MongoDB support — injects `MONGO_URL` automatically  
-- ⚡ Works for both Node.js and Python backends  
+- 🔍 **Auto-detects backend port** (from `.env` or `.js` files)  
+- 🐳 **Generates Dockerfile automatically** (Node.js / Python supported)  
+- 📦 **Builds & runs Docker containers** with a single command  
+- 🛑 **Stops & removes conflicting containers** (same port or name)  
+- 🗑 **Graceful cleanup** on `Ctrl + C`  
+- 🗃 **MongoDB support** — injects `MONGO_URL` automatically  
+- ⚡ Works seamlessly for **Node.js** & **Python** backends  
 
 ---
 
 ## 📋 Requirements
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) running  
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) running ✅  
 - Node.js or Python project with:  
-  - `package.json` (Node.js)  
-  - `requirements.txt` (Python)  
+  - `package.json` (for Node.js)  
+  - `requirements.txt` (for Python)  
 - Optional: `.env` file with `PORT=XXXX`  
 
 ---
 
+## 📥 Download
+
+  You don’t need to clone the repo just for the .exe. Directly download it using PowerShell:
+  Inside your project folder and run it.
+
+    Invoke-WebRequest -Uri "https://github.com/yash-gautam9953/docify/raw/main/docify.exe" -OutFile "docify.exe"
+
+
+
 ## 📂 Project Structure Example
 
-When using Docify, keep it like this:
+Keep your project like this for smooth usage:
 
     myapp/
       │── server.js
@@ -45,12 +55,12 @@ Now just open a terminal in `myapp/` and run:
 
     ./docify
 
-
-
 ## 🗄 MongoDB Setup
 
 Inside your Node.js project, always connect like this:
 
     const mongoUrl = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/YOUR-DB-NAME";
     await mongoose.connect(mongoUrl);
+
+Docify will inject the correct MONGO_URL into your container automatically.
 
