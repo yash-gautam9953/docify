@@ -28,29 +28,29 @@ Docify is a lightweight **Go-based CLI tool** that automatically Dockerizes your
 
 When using Docify, keep it like this:
 
-myapp/
-│── server.js
-│── models/
-│── routes/
-│── package.json
-│── docify.exe 👈 keep the exe file here
+    myapp/
+      │── server.js
+      │── models/
+      │── routes/
+      │── package.json
+      │── docify.exe 👈 keep the exe file here
 
 
 Now just open a terminal in `myapp/` and run:
 
-./docify.exe
+    ./docify.exe
 
 
 ## 🚀 Usage
 
-./docify
+    ./docify
 
 
 
-🗄 MongoDB Setup
+## 🗄 MongoDB Setup
 
 Inside your Node.js project, always connect like this:
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/YOUR-DB-NAME";
-await mongoose.connect(mongoUrl);
+    const mongoUrl = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/YOUR-DB-NAME";
+    await mongoose.connect(mongoUrl);
 
