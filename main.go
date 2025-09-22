@@ -369,7 +369,7 @@ func docifyDeleteParam(containerName string) {
 
 // Show all Docker containers
 func showAllContainers() {
-	fmt.Println("📋 Listing all Docker containers:")
+	fmt.Println("📋 Listing all Docker containers :")
 	cmd := exec.Command("docker", "ps", "-a")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
