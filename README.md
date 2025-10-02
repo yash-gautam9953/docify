@@ -1,7 +1,7 @@
 # 🐳 Docify
 
 **Docify** is a lightweight **Go-based CLI tool** that automatically Dockerizes your **Node.js** or **Python** projects.  
-It detects ports, databases, generates a `Dockerfile`, builds an image, and runs your app in a container — with almost **zero setup**. 🚀  
+It detects ports, databases, generates a `Dockerfile`, build an image, and runs your app in a container — with almost **zero setup**. 🚀  
 
 ---
 
