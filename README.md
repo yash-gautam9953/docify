@@ -52,12 +52,12 @@ Download directly into your project folder:
 
 ```powershell
 # PowerShell
-Invoke-WebRequest -Uri "https://github.com/yash-gautam9953/docifyCode/releases/latest/download/docify.exe" -OutFile "docify.exe"
+Invoke-WebRequest -Uri "https://github.com/yash-gautam9953/docify/releases/latest/download/docify.exe" -OutFile "docify.exe"
 ```
 
 ```bash
 # Git Bash / WSL
-curl -L -o docify.exe https://github.com/yash-gautam9953/docifyCode/releases/latest/download/docify.exe
+curl -L -o docify.exe https://github.com/yash-gautam9953/docify/releases/latest/download/docify.exe
 ```
 
 ---
@@ -260,4 +260,5 @@ app.listen(8080, () => {});           ✅
 **Built with ❤️ & 🐳 by [Yash Gautam](https://github.com/yash-gautam9953)**
 
 ⭐ **Star this repo if Docify saved your time!**
+
 
