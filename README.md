@@ -1,5 +1,8 @@
 # 🐳 Docify
 
+![Release](https://img.shields.io/github/v/release/yash-gautam9953/docify?label=Latest%20Release&color=blue)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-green)
+
 **Docify** is an intelligent **Go-based CLI tool** that automatically Dockerizes your **Node.js** or **Python** projects.  
 It intelligently detects project type, entry files, ports, databases, and manages the complete Docker lifecycle — with **90% automation**. 🚀
 
@@ -27,12 +30,12 @@ It intelligently detects project type, entry files, ports, databases, and manage
 
 ### 🎛️ **Developer Commands**
 
-- 🚀 **Zero-config setup**: `./docify.exe`
-- 🔄 **Quick rebuild**: `./docify.exe rebuild`
-- 📜 **Smart logs**: `./docify.exe logs` (auto-detects your container)
-- ❌ **Easy cleanup**: `./docify.exe delete` (auto-detects your container)
-- 📋 **Project info**: `./docify.exe info`
-- 🗂️ **All containers**: `./docify.exe show`
+- 🚀 **Zero-config setup**: `./docify` (Linux) / `./docify.exe` (Windows)
+- 🔄 **Quick rebuild**: `./docify rebuild`
+- 📜 **Smart logs**: `./docify logs` (auto-detects your container)
+- ❌ **Easy cleanup**: `./docify delete` (auto-detects your container)
+- 📋 **Project info**: `./docify info`
+- 🗂️ **All containers**: `./docify show`
 
 ---
 
@@ -50,6 +53,8 @@ It intelligently detects project type, entry files, ports, databases, and manage
 
 Download directly into your project folder:
 
+### 🪟 **Windows**
+
 ```powershell
 # PowerShell
 Invoke-WebRequest -Uri "https://github.com/yash-gautam9953/docify/releases/latest/download/docify.exe" -OutFile "docify.exe"
@@ -58,6 +63,16 @@ Invoke-WebRequest -Uri "https://github.com/yash-gautam9953/docify/releases/lates
 ```bash
 # Git Bash / WSL
 curl -L -o docify.exe https://github.com/yash-gautam9953/docify/releases/latest/download/docify.exe
+```
+
+### 🐧 **Linux**
+
+```bash
+# Download the Linux binary
+curl -L -o docify https://github.com/yash-gautam9953/docify/releases/latest/download/docify
+
+# Make it executable
+chmod +x docify
 ```
 
 ---
@@ -70,31 +85,33 @@ curl -L -o docify.exe https://github.com/yash-gautam9953/docify/releases/latest/
 # Navigate to your project folder
 cd my-node-app
 
-# Download docify.exe (one time)
-# ... (use download command above)
+# Download docify (one time) — see Quick Install above
 
 # Run your app in Docker (that's it!)
-./docify.exe
+./docify          # Linux
+./docify.exe      # Windows
 ```
 
 ### **Advanced Commands**
 
 ```bash
 # Rebuild after code changes
-./docify.exe rebuild
+./docify rebuild
 
 # View logs (auto-detects your container)
-./docify.exe logs
+./docify logs
 
 # Delete container (auto-detects your container)
-./docify.exe delete
+./docify delete
 
 # Show current project's container info
-./docify.exe info
+./docify info
 
 # List all Docker containers
-./docify.exe show
+./docify show
 ```
+
+> 💡 On Windows, replace `./docify` with `./docify.exe` in all commands above.
 
 ---
 
@@ -109,7 +126,7 @@ my-blog-app/
 ├── .env              # PORT=3000 (optional)
 ├── routes/
 ├── models/
-└── docify.exe        # Place here
+└── docify            # Linux binary (or docify.exe on Windows)
 ```
 
 ### **Python Project**
@@ -120,7 +137,7 @@ my-api/
 ├── requirements.txt  # Project type detection
 ├── .env             # PORT=5000 (optional)
 ├── models/
-└── docify.exe       # Place here
+└── docify           # Linux binary (or docify.exe on Windows)
 ```
 
 ---
@@ -144,10 +161,10 @@ docker run -p 3000:3000 --name my-container my-app
 
 ```bash
 # Initial setup
-./docify.exe
+./docify
 
 # Code changes? Just rebuild
-./docify.exe rebuild
+./docify rebuild
 
 # That's it! 🎉
 ```
@@ -213,14 +230,16 @@ app.listen(8080, () => {});           ✅
 
 ## 🔧 Command Reference
 
-| Command                | Function                       | Example            |
-| ---------------------- | ------------------------------ | ------------------ |
-| `./docify.exe`         | Complete Docker setup + run    | Initial deployment |
-| `./docify.exe rebuild` | Rebuild with latest code       | After code changes |
-| `./docify.exe logs`    | Show container logs            | Debug issues       |
-| `./docify.exe delete`  | Remove container + cleanup     | Clean shutdown     |
-| `./docify.exe info`    | Show project container details | Check status       |
-| `./docify.exe show`    | List all Docker containers     | System overview    |
+| Command            | Function                       | Example            |
+| ------------------ | ------------------------------ | ------------------ |
+| `./docify`         | Complete Docker setup + run    | Initial deployment |
+| `./docify rebuild` | Rebuild with latest code       | After code changes |
+| `./docify logs`    | Show container logs            | Debug issues       |
+| `./docify delete`  | Remove container + cleanup     | Clean shutdown     |
+| `./docify info`    | Show project container details | Check status       |
+| `./docify show`    | List all Docker containers     | System overview    |
+
+> 💡 On Windows, use `docify.exe` instead of `docify`.
 
 ---
 
@@ -252,13 +271,23 @@ app.listen(8080, () => {});           ✅
 - Smart environment detection
 - 30 seconds per project
 
-----
+---
 
+## � Releases
 
-## 👨‍💻 Author
+### Latest: [v1.0.1](https://github.com/yash-gautam9953/docify/releases/tag/v1.0.1)
+
+| Asset        | Platform        | Size    |
+| ------------ | --------------- | ------- |
+| `docify`     | Linux (amd64)   | 1.91 MB |
+| `docify.exe` | Windows (amd64) | 2.91 MB |
+
+Download from the [Releases page](https://github.com/yash-gautam9953/docify/releases).
+
+---
+
+## �👨‍💻 Author
 
 **Built with ❤️ & 🐳 by [Yash Gautam](https://github.com/yash-gautam9953)**
 
 ⭐ **Star this repo if Docify saved your time!**
-
-
