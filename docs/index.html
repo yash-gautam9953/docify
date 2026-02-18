@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docify — Auto Docker Image Builder</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐳</text></svg>"
+    />
+  </head>
+  <body>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="container">
+        <h1>🐳 Docify</h1>
+        <p class="tagline">
+          Auto-generate production-ready Docker images —
+          <strong>zero configuration</strong>
+        </p>
+        <p class="subtitle">
+          Just run <code>./docify</code> in your project folder. It auto-detects
+          everything and builds a Docker image.
+          <strong>No questions asked.</strong>
+        </p>
+        <div class="hero-badges">
+          <img
+            src="https://img.shields.io/github/v/release/yash-gautam9953/docify?label=Latest%20Release&color=blue"
+            alt="Release"
+          />
+          <img
+            src="https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-green"
+            alt="Platform"
+          />
+        </div>
+        <div class="hero-buttons">
+          <a href="#install" class="btn btn-primary">⬇️ Download</a>
+          <a
+            href="https://github.com/yash-gautam9953/docify"
+            class="btn btn-secondary"
+            target="_blank"
+            >⭐ GitHub</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported Projects -->
+    <section class="section" id="supported">
+      <div class="container">
+        <h2>✨ Supported Projects</h2>
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">🟢</div>
+            <h3>Node.js Backend</h3>
+            <p class="card-detect">
+              Detected via <code>package.json</code> + server code
+            </p>
+            <p class="card-result">
+              → <code>node:18-alpine</code> + <code>npm ci</code>
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">⚛️</div>
+            <h3>React / Vite</h3>
+            <p class="card-detect">
+              Detected via <code>react-scripts</code> or <code>vite</code>
+            </p>
+            <p class="card-result">
+              → Multi-stage: build → <code>nginx:alpine</code>
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">▲</div>
+            <h3>Next.js</h3>
+            <p class="card-detect">
+              Detected via <code>next</code> in deps or
+              <code>next.config.*</code>
+            </p>
+            <p class="card-result">
+              → Multi-stage: build → <code>npm start</code>
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🐍</div>
+            <h3>Python</h3>
+            <p class="card-detect">
+              Detected via <code>requirements.txt</code>
+            </p>
+            <p class="card-result">
+              → <code>python:3.11-slim</code> + <code>pip install</code>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section section-dark" id="how">
+      <div class="container">
+        <h2>🚀 How It Works</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <p>✅ Verifies Docker is running</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <p>📦 Auto-detects project type</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <p>📄 Auto-detects entry file & port</p>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <p>📝 Generates optimized Dockerfile</p>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <p>🔨 Builds the Docker image</p>
+          </div>
+        </div>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">Terminal</span>
+          </div>
+          <pre><code><span class="prompt">$</span> cd my-project
+<span class="prompt">$</span> ./docify
+
+<span class="out">🚀 Docify — Auto Docker Image Builder</span>
+<span class="out">========================================</span>
+<span class="out">✅ Docker is running.</span>
+<span class="out">✅ Detected project: Node.js (Backend)</span>
+<span class="out">✅ Entry file: server.js</span>
+<span class="out">✅ Port: 3000</span>
+<span class="out">✅ Image name: docify-my-project</span>
+<span class="out">📝 Dockerfile generated.</span>
+<span class="out">🔨 Building Docker image 'docify-my-project'...</span>
+<span class="out">========================================</span>
+<span class="success">✅ Docker image built successfully!</span>
+<span class="out">========================================</span>
+<span class="out">▶️  Run it with:</span>
+<span class="out">   docker run -p 3000:3000 docify-my-project</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Install -->
+    <section class="section" id="install">
+      <div class="container">
+        <h2>📥 Quick Install</h2>
+        <div class="install-grid">
+          <div class="install-card">
+            <h3>🪟 Windows</h3>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              <pre><code>Invoke-WebRequest -Uri "https://github.com/yash-gautam9953/docify/releases/latest/download/docify.exe" -OutFile "docify.exe"</code></pre>
+            </div>
+          </div>
+          <div class="install-card">
+            <h3>🐧 Linux</h3>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+              <pre><code>curl -L -o docify https://github.com/yash-gautam9953/docify/releases/latest/download/docify
+chmod +x docify</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Auto Detection -->
+    <section class="section section-dark" id="detection">
+      <div class="container">
+        <h2>🎯 Smart Auto-Detection</h2>
+        <div class="detection-grid">
+          <div class="detect-item">
+            <h4>📦 Project Type</h4>
+            <p>
+              <code>package.json</code> deps → React / Next / Vite / Backend<br /><code
+                >requirements.txt</code
+              >
+              → Python
+            </p>
+          </div>
+          <div class="detect-item">
+            <h4>📄 Entry File</h4>
+            <p>
+              <code>package.json</code> main/start script<br />→
+              <code>server.js</code>, <code>app.js</code>,
+              <code>index.js</code>...
+            </p>
+          </div>
+          <div class="detect-item">
+            <h4>🌐 Port</h4>
+            <p>
+              <code>.env</code> → code scan → <code>package.json</code> scripts
+              → framework defaults
+            </p>
+          </div>
+          <div class="detect-item">
+            <h4>🏷️ Image Name</h4>
+            <p>Your folder name → <code>docify-&lt;folder&gt;</code></p>
+          </div>
+        </div>
+        <div class="port-priority">
+          <h3>Port Detection Priority</h3>
+          <ol>
+            <li><code>.env</code> file → <code>PORT=3000</code></li>
+            <li>
+              Code scan → <code>app.listen(3000)</code>,
+              <code>const port = 3000</code>
+            </li>
+            <li>
+              <code>package.json</code> → <code>--port 5173</code> in scripts
+            </li>
+            <li>
+              Framework defaults → Vite: <code>5173</code>, React/Next:
+              <code>3000</code>
+            </li>
+            <li>If all fail → asks user <em>(only input ever needed)</em></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="section" id="why">
+      <div class="container">
+        <h2>🏆 Why Docify?</h2>
+        <div class="comparison">
+          <div class="compare-col compare-bad">
+            <h3>Without Docify 😫</h3>
+            <ul>
+              <li>Write Dockerfile manually</li>
+              <li>Research multi-stage builds</li>
+              <li>Figure out entry file & port</li>
+              <li>Different setup per project</li>
+              <li><strong>~15 min per project</strong></li>
+            </ul>
+          </div>
+          <div class="compare-col compare-good">
+            <h3>With Docify 🎉</h3>
+            <ul>
+              <li>Auto-generated</li>
+              <li>Built-in for React / Next.js</li>
+              <li>Auto-detected</li>
+              <li>One command for all</li>
+              <li><strong>~10 seconds</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Releases -->
+    <section class="section section-dark" id="releases">
+      <div class="container">
+        <h2>📦 Latest Release — v1.0.1</h2>
+        <div class="release-cards">
+          <a
+            href="https://github.com/yash-gautam9953/docify/releases/latest/download/docify"
+            class="release-card"
+          >
+            <span class="release-icon">🐧</span>
+            <h4>Linux (amd64)</h4>
+            <p class="release-file">docify</p>
+            <p class="release-size">1.91 MB</p>
+          </a>
+          <a
+            href="https://github.com/yash-gautam9953/docify/releases/latest/download/docify.exe"
+            class="release-card"
+          >
+            <span class="release-icon">🪟</span>
+            <h4>Windows (amd64)</h4>
+            <p class="release-file">docify.exe</p>
+            <p class="release-size">2.91 MB</p>
+          </a>
+        </div>
+        <p class="release-link">
+          View all releases on
+          <a
+            href="https://github.com/yash-gautam9953/docify/releases"
+            target="_blank"
+            >GitHub</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>
+          Built with ❤️ & 🐳 by
+          <a href="https://github.com/yash-gautam9953" target="_blank"
+            >Yash Gautam</a
+          >
+        </p>
+        <p>
+          ⭐
+          <a href="https://github.com/yash-gautam9953/docify" target="_blank"
+            >Star this repo</a
+          >
+          if Docify saved your time!
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
